@@ -9,8 +9,8 @@ import java.awt.BorderLayout;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.Random;
-import javax.swing.JFrame;
 
+import javax.swing.JFrame;
 public class Tetris extends JFrame {
 	private static final long FRAME_TIME = 1000L / 50L;
 	private static final int TYPE_COUNT = TileType.values().length;
@@ -30,9 +30,7 @@ public class Tetris extends JFrame {
 	private int currentRotation;
 	private int dropCooldown;
 	private float gameSpeed;
-	
 	private Tetris() {
-		
 		super("Tetris");
 		setLayout(new BorderLayout());
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -42,10 +40,8 @@ public class Tetris extends JFrame {
 		add(board, BorderLayout.CENTER);
 		add(side, BorderLayout.EAST);
 		addKeyListener(new KeyAdapter() {
-			
 			@Override
 			public void keyPressed(KeyEvent e) {
-								
 				switch(e.getKeyCode()) {
 				case KeyEvent.VK_S:
 					if(!isPaused && dropCooldown == 0) {
@@ -83,13 +79,11 @@ public class Tetris extends JFrame {
 						resetGame();
 					}
 					break;
-				
 				}
 			}
 			
 			@Override
 			public void keyReleased(KeyEvent e) {
-				
 				switch(e.getKeyCode()) {
 				case KeyEvent.VK_S:
 					logicTimer.setCyclesPerSecond(gameSpeed);
@@ -110,7 +104,6 @@ public class Tetris extends JFrame {
 		this.gameSpeed = 1.0f;
 		this.logicTimer = new Clock(gameSpeed);
 		logicTimer.setPaused(true);
-		
 		while(true) {
 			long start = System.nanoTime();
 			logicTimer.update();
@@ -133,6 +126,7 @@ public class Tetris extends JFrame {
 	}
 	private void updateGame() {
 		if(board.isValidAndEmpty(currentType, currentCol, currentRow + 1, currentRotation)) {
+			currentRow++;
 		} else {
 			board.addPiece(currentType, currentCol, currentRow, currentRotation);
 			int cleared = board.checkLines();
