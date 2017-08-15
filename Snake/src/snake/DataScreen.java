@@ -36,12 +36,12 @@ public class DataScreen extends JPanel {
                 g.fillOval(x+2, y+2, tileSize - 4, tileSize - 4);
                 break;
             case snakeBody:
-                Color bodyC = Color.decode("#1E8449");
+                Color bodyC = Color.decode("#2D2A69");
                 g.setColor(bodyC);
                 g.fillRect(x, y, tileSize, tileSize);
                 break;
             case snakeHead:
-                Color headC = Color.decode("#1E8449");
+                Color headC = Color.decode("#2D2A69");
                 g.setColor(headC);
                 g.fillRect(x, y, tileSize, tileSize);
                 g.setColor(Color.black);
