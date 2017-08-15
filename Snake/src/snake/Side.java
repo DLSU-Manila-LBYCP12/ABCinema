@@ -27,7 +27,7 @@ public class Side extends JPanel {
     private static final Font mediumFont = new Font("Tahome", Font.BOLD,16);
     private static final Font smallFont = new Font("Tahoma", Font.BOLD, 12);
     
-    Color sidebg = Color.decode("#A04000");
+    Color sidebg = Color.decode("#F97300");
     Color text = Color.decode("#FAE5D3");
     
     public Side(Main game){
