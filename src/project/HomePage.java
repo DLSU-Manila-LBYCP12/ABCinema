@@ -7,13 +7,18 @@ package project;
 
 import javax.swing.ImageIcon;
 
+import cinema.*;
+
 /**
  *
  * @author christinecarylchen
  */
 public class HomePage extends javax.swing.JFrame {
 
-    
+    //CINEMAS
+    TYA TYA = new TYA();
+    WSLT WSLT = new WSLT();
+    Amphi Amphi = new Amphi();
     
     /**
      * Creates new form Main
@@ -37,14 +42,16 @@ public class HomePage extends javax.swing.JFrame {
         buttonRegister = new javax.swing.JButton();
         lineGrey = new javax.swing.JLabel();
         buttonLogin = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         panelTitle = new javax.swing.JPanel();
         labelTitle = new javax.swing.JLabel();
         panelSearchBar = new javax.swing.JPanel();
         comboBoxCinema = new javax.swing.JComboBox<>();
         buttonSearch = new javax.swing.JButton();
+        mainPanel = new javax.swing.JPanel();
         scrollpanelMovies = new javax.swing.JScrollPane();
         panelMovies = new javax.swing.JPanel();
-        panelSpiderman = new javax.swing.JPanel();
+        panelSpiderMan = new javax.swing.JPanel();
         detailSpiderman = new javax.swing.JButton();
         buttonSpiderman = new javax.swing.JButton();
         panelDespicableMe3 = new javax.swing.JPanel();
@@ -77,7 +84,7 @@ public class HomePage extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1000, 825));
-        setPreferredSize(new java.awt.Dimension(1200, 1035));
+        setPreferredSize(new java.awt.Dimension(1200, 800));
         setResizable(false);
         setSize(new java.awt.Dimension(1200, 0));
 
@@ -85,13 +92,13 @@ public class HomePage extends javax.swing.JFrame {
         panelHomeBar.setPreferredSize(new java.awt.Dimension(0, 25));
 
         buttonHome.setBackground(new java.awt.Color(255, 255, 255));
-        buttonHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/buttomHomeBlack.png"))); // NOI18N
+        buttonHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/buttonHomeBlack.png"))); // NOI18N
+        buttonHome.setBorder(null);
         buttonHome.setBorderPainted(false);
         buttonHome.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         buttonHome.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/buttonHomeBlue.png"))); // NOI18N
         buttonHome.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/buttonHomeBlue.png"))); // NOI18N
         buttonHome.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        buttonHome.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
         buttonHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonHomeActionPerformed(evt);
@@ -100,13 +107,20 @@ public class HomePage extends javax.swing.JFrame {
 
         buttonMovies.setBackground(new java.awt.Color(255, 255, 255));
         buttonMovies.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/buttonMoviesBlack.png"))); // NOI18N
+        buttonMovies.setBorder(null);
         buttonMovies.setBorderPainted(false);
         buttonMovies.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/buttonMoviesBlue.png"))); // NOI18N
         buttonMovies.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/buttonMoviesBlue.png"))); // NOI18N
         buttonMovies.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        buttonMovies.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonMoviesActionPerformed(evt);
+            }
+        });
 
         buttonRegister.setBackground(new java.awt.Color(255, 255, 255));
         buttonRegister.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/buttonRegister.png"))); // NOI18N
+        buttonRegister.setBorder(null);
         buttonRegister.setBorderPainted(false);
         buttonRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,39 +131,45 @@ public class HomePage extends javax.swing.JFrame {
         lineGrey.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/lineGrey.png"))); // NOI18N
 
         buttonLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/buttonLogin.png"))); // NOI18N
+        buttonLogin.setBorder(null);
         buttonLogin.setBorderPainted(false);
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/buttonLogo.png"))); // NOI18N
+        jButton1.setBorder(null);
+        jButton1.setBorderPainted(false);
 
         javax.swing.GroupLayout panelHomeBarLayout = new javax.swing.GroupLayout(panelHomeBar);
         panelHomeBar.setLayout(panelHomeBarLayout);
         panelHomeBarLayout.setHorizontalGroup(
             panelHomeBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelHomeBarLayout.createSequentialGroup()
-                .addGap(364, 364, 364)
+                .addGap(223, 223, 223)
+                .addComponent(jButton1)
+                .addGap(109, 109, 109)
                 .addComponent(buttonHome)
-                .addGap(18, 18, 18)
+                .addGap(41, 41, 41)
                 .addComponent(buttonMovies)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(buttonRegister)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lineGrey, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buttonLogin)
-                .addGap(102, 102, 102))
+                .addGap(108, 108, 108))
         );
         panelHomeBarLayout.setVerticalGroup(
             panelHomeBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(buttonRegister, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(buttonLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelHomeBarLayout.createSequentialGroup()
+                .addComponent(lineGrey, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                .addContainerGap())
             .addGroup(panelHomeBarLayout.createSequentialGroup()
-                .addGap(8, 8, 8)
-                .addGroup(panelHomeBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lineGrey)
-                    .addComponent(buttonLogin, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(buttonRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(panelHomeBarLayout.createSequentialGroup()
-                .addGap(3, 3, 3)
+                .addContainerGap()
                 .addGroup(panelHomeBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(buttonHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonMovies, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(buttonMovies, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         labelTitle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/Title.png"))); // NOI18N
@@ -172,16 +192,29 @@ public class HomePage extends javax.swing.JFrame {
         panelSearchBar.setBackground(new java.awt.Color(255, 255, 255));
 
         comboBoxCinema.setBackground(new java.awt.Color(255, 255, 255));
-        comboBoxCinema.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboBoxCinema.setFont(new java.awt.Font("Novecento sans wide", 0, 13)); // NOI18N
+        comboBoxCinema.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Cinema (Optional)", "Teresa Yuchengco Auditorium", "William Shaw William Shaw Little Theatre", "Amphitheatre" }));
         comboBoxCinema.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboBoxCinemaActionPerformed(evt);
             }
         });
 
-        buttonSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/buttonSeachDark.png"))); // NOI18N
+        buttonSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/buttonSearchDark.png"))); // NOI18N
+        buttonSearch.setBorder(null);
         buttonSearch.setBorderPainted(false);
+        buttonSearch.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/buttonSearchLight.png"))); // NOI18N
         buttonSearch.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/buttonSearchLight.png"))); // NOI18N
+        buttonSearch.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonSearchMouseClicked(evt);
+            }
+        });
+        buttonSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSearchActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelSearchBarLayout = new javax.swing.GroupLayout(panelSearchBar);
         panelSearchBar.setLayout(panelSearchBarLayout);
@@ -190,26 +223,25 @@ public class HomePage extends javax.swing.JFrame {
             .addGroup(panelSearchBarLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(comboBoxCinema, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addGap(29, 29, 29)
                 .addComponent(buttonSearch)
-                .addGap(27, 27, 27))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelSearchBarLayout.setVerticalGroup(
             panelSearchBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelSearchBarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelSearchBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(comboBoxCinema)
-                    .addComponent(buttonSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(buttonSearch)
+                    .addComponent(comboBoxCinema))
                 .addContainerGap())
         );
 
-        scrollpanelMovies.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
         scrollpanelMovies.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
-        panelSpiderman.setBackground(new java.awt.Color(255, 255, 255));
+        panelSpiderMan.setBackground(new java.awt.Color(255, 255, 255));
 
-        detailSpiderman.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonRating/buttonPG13.png"))); // NOI18N
+        detailSpiderman.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonRating/buttonR13.png"))); // NOI18N
         detailSpiderman.setBorderPainted(false);
         detailSpiderman.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -232,20 +264,20 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout panelSpidermanLayout = new javax.swing.GroupLayout(panelSpiderman);
-        panelSpiderman.setLayout(panelSpidermanLayout);
-        panelSpidermanLayout.setHorizontalGroup(
-            panelSpidermanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelSpidermanLayout.createSequentialGroup()
+        javax.swing.GroupLayout panelSpiderManLayout = new javax.swing.GroupLayout(panelSpiderMan);
+        panelSpiderMan.setLayout(panelSpiderManLayout);
+        panelSpiderManLayout.setHorizontalGroup(
+            panelSpiderManLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelSpiderManLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelSpidermanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(panelSpiderManLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(buttonSpiderman, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(detailSpiderman, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(0, 7, Short.MAX_VALUE))
         );
-        panelSpidermanLayout.setVerticalGroup(
-            panelSpidermanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelSpidermanLayout.createSequentialGroup()
+        panelSpiderManLayout.setVerticalGroup(
+            panelSpiderManLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelSpiderManLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(buttonSpiderman, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -296,7 +328,7 @@ public class HomePage extends javax.swing.JFrame {
         buttonWonderWoman.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonRolloverPressed/buttonWonderWomanPressed.png"))); // NOI18N
         buttonWonderWoman.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonRolloverPressed/buttonWonderWomanRollover.png"))); // NOI18N
 
-        detailWonderWoman.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonRating/buttonPG13.png"))); // NOI18N
+        detailWonderWoman.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonRating/buttonR13.png"))); // NOI18N
         detailWonderWoman.setBorderPainted(false);
 
         javax.swing.GroupLayout panelWonderWomanLayout = new javax.swing.GroupLayout(panelWonderWoman);
@@ -476,7 +508,7 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        detailBeforeIFall.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonRating/buttonPG13.png"))); // NOI18N
+        detailBeforeIFall.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonRating/buttonR13.png"))); // NOI18N
         detailBeforeIFall.setBorderPainted(false);
         detailBeforeIFall.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -593,7 +625,7 @@ public class HomePage extends javax.swing.JFrame {
             panelMoviesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelMoviesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panelSpiderman, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelSpiderMan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelDespicableMe3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -624,7 +656,7 @@ public class HomePage extends javax.swing.JFrame {
                     .addComponent(panelJohnWick, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelWonderWoman, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelDespicableMe3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panelSpiderman, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelSpiderMan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelRoughNight, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelBeforeIFall, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelCars, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -633,6 +665,23 @@ public class HomePage extends javax.swing.JFrame {
         );
 
         scrollpanelMovies.setViewportView(panelMovies);
+
+        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
+        mainPanel.setLayout(mainPanelLayout);
+        mainPanelLayout.setHorizontalGroup(
+            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mainPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(scrollpanelMovies, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        mainPanelLayout.setVerticalGroup(
+            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mainPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(scrollpanelMovies, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -645,31 +694,31 @@ public class HomePage extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(100, 100, 100)
-                        .addComponent(scrollpanelMovies, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(325, 325, 325)
-                        .addComponent(panelSearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(panelSearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(panelHomeBar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelHomeBar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(6, 6, 6)
                 .addComponent(panelSearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(scrollpanelMovies, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(359, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(130, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHomeActionPerformed
-        // TODO add your handling code here:
+        panelTitle.setVisible(true);
     }//GEN-LAST:event_buttonHomeActionPerformed
 
     private void comboBoxCinemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxCinemaActionPerformed
@@ -735,8 +784,37 @@ public class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_detailSpidermanMouseClicked
 
     private void detailSpidermanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_detailSpidermanActionPerformed
-        // TODO add your handling code here:
+        
+
+// TODO add your handling code here:
     }//GEN-LAST:event_detailSpidermanActionPerformed
+
+    private void buttonMoviesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMoviesActionPerformed
+       panelTitle.setVisible(false);
+    }//GEN-LAST:event_buttonMoviesActionPerformed
+
+    private void buttonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSearchActionPerformed
+        if (comboBoxCinema.getSelectedIndex()==1){
+            TYA.setVisible(true);
+            TYA.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        }   
+        
+        if (comboBoxCinema.getSelectedIndex()==2){
+            WSLT.setVisible(true);
+            WSLT.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        }  
+        
+        if (comboBoxCinema.getSelectedIndex()==3){
+            Amphi.setVisible(true);
+            Amphi.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        }  
+       
+    
+    }//GEN-LAST:event_buttonSearchActionPerformed
+
+    private void buttonSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonSearchMouseClicked
+             // TODO add your handling code here:
+    }//GEN-LAST:event_buttonSearchMouseClicked
 
     /**
      * @param args the command line arguments
@@ -777,59 +855,46 @@ public class HomePage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonAmityville;
     private javax.swing.JButton buttonBabyDriver;
-    private javax.swing.JButton buttonBabyDriver1;
     private javax.swing.JButton buttonBaywatch;
     private javax.swing.JButton buttonBeforeIFall;
     private javax.swing.JButton buttonCars;
     private javax.swing.JButton buttonDespicableMe3;
     private javax.swing.JButton buttonHome;
     private javax.swing.JButton buttonJohnWick2;
-    private javax.swing.JButton buttonJohnWick3;
     private javax.swing.JButton buttonLogin;
     private javax.swing.JButton buttonMovies;
     private javax.swing.JButton buttonRegister;
     private javax.swing.JButton buttonRoughNight;
-    private javax.swing.JButton buttonRoughNight1;
-    private javax.swing.JButton buttonRoughNight5;
-    private javax.swing.JButton buttonRoughNight6;
     private javax.swing.JButton buttonSearch;
     private javax.swing.JButton buttonSpiderman;
     private javax.swing.JButton buttonWonderWoman;
     private javax.swing.JComboBox<String> comboBoxCinema;
     private javax.swing.JButton detailAmityville;
     private javax.swing.JButton detailBabyDriver;
-    private javax.swing.JButton detailBabyDriver1;
     private javax.swing.JButton detailBaywatch;
     private javax.swing.JButton detailBeforeIFall;
     private javax.swing.JButton detailCars;
     private javax.swing.JButton detailDespicableMe3;
     private javax.swing.JButton detailJohnWick2;
-    private javax.swing.JButton detailJohnWick3;
     private javax.swing.JButton detailRoughNight;
-    private javax.swing.JButton detailRoughNight1;
-    private javax.swing.JButton detailRoughNight5;
-    private javax.swing.JButton detailRoughNight6;
     private javax.swing.JButton detailSpiderman;
     private javax.swing.JButton detailWonderWoman;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel labelTitle;
     private javax.swing.JLabel lineGrey;
+    private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel panelAmityville;
     private javax.swing.JPanel panelBabyDriver;
-    private javax.swing.JPanel panelBabyDriver1;
     private javax.swing.JPanel panelBaywatch;
     private javax.swing.JPanel panelBeforeIFall;
     private javax.swing.JPanel panelCars;
     private javax.swing.JPanel panelDespicableMe3;
     private javax.swing.JPanel panelHomeBar;
     private javax.swing.JPanel panelJohnWick;
-    private javax.swing.JPanel panelJohnWick1;
     private javax.swing.JPanel panelMovies;
     private javax.swing.JPanel panelRoughNight;
-    private javax.swing.JPanel panelRoughNight1;
-    private javax.swing.JPanel panelRoughNight5;
-    private javax.swing.JPanel panelRoughNight6;
     private javax.swing.JPanel panelSearchBar;
-    private javax.swing.JPanel panelSpiderman;
+    private javax.swing.JPanel panelSpiderMan;
     private javax.swing.JPanel panelTitle;
     private javax.swing.JPanel panelWonderWoman;
     private javax.swing.JScrollPane scrollpanelMovies;

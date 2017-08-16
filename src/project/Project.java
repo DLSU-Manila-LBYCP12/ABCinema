@@ -15,10 +15,6 @@ public class Project extends Program {
 
     private HomePage HomePage;
 
-    public void run(){
-        HomePage = new HomePage();
-        
-    }
     
     /**
      * 
