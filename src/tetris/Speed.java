@@ -5,13 +5,13 @@
  */
 package tetris;
 
-public class Clock {
+public class Speed {
 	private float millisPerCycle;
 	private long lastUpdate;
 	private int elapsedCycles;
 	private float excessCycles;
 	private boolean isPaused;
-	public Clock(float cyclesPerSecond) {
+	public Speed(float cyclesPerSecond) {
 		setCyclesPerSecond(cyclesPerSecond);
 		reset();
 	}
