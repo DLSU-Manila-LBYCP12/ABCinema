@@ -5,181 +5,224 @@
  */
 package tetris;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Graphics;
+import java.awt.BorderLayout;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.util.Random;
 
-import javax.swing.JPanel;
-
-public class BoardPanel extends JPanel {
-	public static final int COLOR_MIN = 35;
-	public static final int COLOR_MAX = 255 - COLOR_MIN;
-	private static final int BORDER_WIDTH = 5;
-	public static final int COL_COUNT = 10;
-	private static final int VISIBLE_ROW_COUNT = 20;
-	private static final int HIDDEN_ROW_COUNT = 2;
-	public static final int ROW_COUNT = VISIBLE_ROW_COUNT + HIDDEN_ROW_COUNT;
-	public static final int TILE_SIZE = 24;
-	public static final int SHADE_WIDTH = 4;
-	private static final int CENTER_X = COL_COUNT * TILE_SIZE / 2;
-	private static final int CENTER_Y = VISIBLE_ROW_COUNT * TILE_SIZE / 2;
-	public static final int PANEL_WIDTH = COL_COUNT * TILE_SIZE + BORDER_WIDTH * 2;
-	public static final int PANEL_HEIGHT = VISIBLE_ROW_COUNT * TILE_SIZE + BORDER_WIDTH * 2;
-	private static final Font LARGE_FONT = new Font("Comic Sans Ms", Font.BOLD, 16);
-	private static final Font SMALL_FONT = new Font("Comic Sans Ms", Font.BOLD, 12);
-	private Tetris tetris;
-	private TileType[][] tiles;
-	public BoardPanel(Tetris tetris) {
-		this.tetris = tetris;
-		this.tiles = new TileType[ROW_COUNT][COL_COUNT];
-		
-		setPreferredSize(new Dimension(PANEL_WIDTH, PANEL_HEIGHT));
-		setBackground(Color.BLACK);
-	}
-	public void clear() {
-		for(int i = 0; i < ROW_COUNT; i++) {
-			for(int j = 0; j < COL_COUNT; j++) {
-				tiles[i][j] = null;
-			}
-		}
-	}
-	public boolean isValidAndEmpty(TileType type, int x, int y, int rotation) {
-		if(x < -type.getLeftInset(rotation) || x + type.getDimension() - type.getRightInset(rotation) >= COL_COUNT) {
-			return false;
-		}
-		if(y < -type.getTopInset(rotation) || y + type.getDimension() - type.getBottomInset(rotation) >= ROW_COUNT) {
-			return false;
-		}
-		for(int col = 0; col < type.getDimension(); col++) {
-			for(int row = 0; row < type.getDimension(); row++) {
-				if(type.isTile(col, row, rotation) && isOccupied(x + col, y + row)) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-	public void addPiece(TileType type, int x, int y, int rotation) {
-		for(int col = 0; col < type.getDimension(); col++) {
-			for(int row = 0; row < type.getDimension(); row++) {
-				if(type.isTile(col, row, rotation)) {
-					setTile(col + x, row + y, type);
-				}
-			}
-		}
-	}
-	public int checkLines() {
-		int completedLines = 0;
-		for(int row = 0; row < ROW_COUNT; row++) {
-			if(checkLine(row)) {
-				completedLines++;
-			}
-		}
-		return completedLines;
-	}
-	private boolean checkLine(int line) {
-		for(int col = 0; col < COL_COUNT; col++) {
-			if(!isOccupied(col, line)) {
-				return false;
-			}
-		}
-		for(int row = line - 1; row >= 0; row--) {
-			for(int col = 0; col < COL_COUNT; col++) {
-				setTile(col, row + 1, getTile(col, row));
-			}
-		}
-		return true;
-	}
-	private boolean isOccupied(int x, int y) {
-		return tiles[y][x] != null;
-	}
-	private void setTile(int  x, int y, TileType type) {
-		tiles[y][x] = type;
-	}
-	private TileType getTile(int x, int y) {
-		return tiles[y][x];
-	}
-	
-	@Override
-	public void paintComponent(Graphics g) {
-		super.paintComponent(g);
-		g.translate(BORDER_WIDTH, BORDER_WIDTH);
-		if(tetris.isPaused()) {
-			g.setFont(LARGE_FONT);
-			g.setColor(Color.WHITE);
-			String msg = "PAUSED";
-			g.drawString(msg, CENTER_X - g.getFontMetrics().stringWidth(msg) / 2, CENTER_Y);
-		} else if(tetris.isNewGame() || tetris.isGameOver()) {
-			g.setFont(LARGE_FONT);
-			g.setColor(Color.WHITE);
-			String msg = tetris.isNewGame() ? "TETRIS" : "GAME OVER";
-			g.drawString(msg, CENTER_X - g.getFontMetrics().stringWidth(msg) / 2, 150);
-			g.setFont(SMALL_FONT);
-			msg = "Press Enter to Play" + (tetris.isNewGame() ? "" : " Again");
-			g.drawString(msg, CENTER_X - g.getFontMetrics().stringWidth(msg) / 2, 300);
-		} else {
-			for(int x = 0; x < COL_COUNT; x++) {
-				for(int y = HIDDEN_ROW_COUNT; y < ROW_COUNT; y++) {
-					TileType tile = getTile(x, y);
-					if(tile != null) {
-						drawTile(tile, x * TILE_SIZE, (y - HIDDEN_ROW_COUNT) * TILE_SIZE, g);
+import javax.swing.JFrame;
+public class Tetris extends JFrame {
+	private static final long FRAME_TIME = 1000L / 50L;
+	private static final int TYPE_COUNT = Tiles.values().length;
+	private Main board;
+	private final Menu side;
+	private boolean isPaused;
+	private boolean isNewGame;
+	private boolean isGameOver;
+	private int level;
+	private int score;
+	private Random random;
+        private Speed logicTimer;
+	private Tiles orginTile;
+	private Tiles nextTile;
+	private int Columb;
+	private int Row;
+	private int Rotation;
+	private int dropCooldown;
+	private float gameSpeed;
+	private Tetris() {
+		super("Tetris");
+		setLayout(new BorderLayout());
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setResizable(false);
+		this.board = new Main(this);
+		this.side = new Menu(this);
+		add(board, BorderLayout.CENTER);
+		add(side, BorderLayout.EAST);
+		addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				switch(e.getKeyCode()) {
+				case KeyEvent.VK_S:
+					if(!isPaused && dropCooldown == 0) {
+						logicTimer.setCyclesPerSecond(25.0f);
 					}
-				}
-			}
-			TileType type = tetris.getPieceType();
-			int pieceCol = tetris.getPieceCol();
-			int pieceRow = tetris.getPieceRow();
-			int rotation = tetris.getPieceRotation();
-			for(int col = 0; col < type.getDimension(); col++) {
-				for(int row = 0; row < type.getDimension(); row++) {
-					if(pieceRow + row >= 2 && type.isTile(col, row, rotation)) {
-						drawTile(type, (pieceCol + col) * TILE_SIZE, (pieceRow + row - HIDDEN_ROW_COUNT) * TILE_SIZE, g);
+					break;
+				case KeyEvent.VK_A:
+					if(!isPaused && board.isValidAndEmpty(orginTile, Columb - 1, Row, Rotation)) {
+						Columb--;
 					}
-				}
-			}
-			Color base = type.getBaseColor();
-			base = new Color(base.getRed(), base.getGreen(), base.getBlue(), 20);
-			for(int lowest = pieceRow; lowest < ROW_COUNT; lowest++) {
-				if(isValidAndEmpty(type, pieceCol, lowest, rotation)) {					
-					continue;
-				}
-				lowest--;
-				for(int col = 0; col < type.getDimension(); col++) {
-					for(int row = 0; row < type.getDimension(); row++) {
-						if(lowest + row >= 2 && type.isTile(col, row, rotation)) {
-							drawTile(base, base.brighter(), base.darker(), (pieceCol + col) * TILE_SIZE, (lowest + row - HIDDEN_ROW_COUNT) * TILE_SIZE, g);
-						}
+					break;
+				case KeyEvent.VK_D:
+					if(!isPaused && board.isValidAndEmpty(orginTile, Columb + 1, Row, Rotation)) {
+						Columb++;
 					}
+					break;
+				case KeyEvent.VK_Q:
+					if(!isPaused) {
+						rotatePiece((Rotation == 0) ? 3 : Rotation - 1);
+					}
+					break;
+				case KeyEvent.VK_E:
+					if(!isPaused) {
+						rotatePiece((Rotation == 3) ? 0 : Rotation + 1);
+					}
+					break;
+				case KeyEvent.VK_P:
+					if(!isGameOver && !isNewGame) {
+						isPaused = !isPaused;
+						logicTimer.setPaused(isPaused);
+					}
+					break;
+				case KeyEvent.VK_ENTER:
+					if(isGameOver || isNewGame) {
+						resetGame();
+					}
+					break;
+                                 
+                                }
+			}                            
+			@Override
+			public void keyReleased(KeyEvent e) {
+				switch(e.getKeyCode()) {
+				case KeyEvent.VK_S:
+					logicTimer.setCyclesPerSecond(gameSpeed);
+					logicTimer.reset();
+					break;
 				}
 				
-				break;
+			}			
+		});
+		pack();
+		setLocationRelativeTo(null);
+		setVisible(true);
+	}
+	private void startGame() {
+		this.random = new Random();
+		this.isNewGame = true;
+		this.gameSpeed = 1.0f;
+		this.logicTimer = new Speed(gameSpeed);
+		logicTimer.setPaused(true);
+		while(true) {
+			long start = System.nanoTime();
+			logicTimer.update();
+			if(logicTimer.hasElapsedCycle()) {
+				updateGame();
 			}
-			g.setColor(Color.DARK_GRAY);
-			for(int x = 0; x < COL_COUNT; x++) {
-				for(int y = 0; y < VISIBLE_ROW_COUNT; y++) {
-					g.drawLine(0, y * TILE_SIZE, COL_COUNT * TILE_SIZE, y * TILE_SIZE);
-					g.drawLine(x * TILE_SIZE, 0, x * TILE_SIZE, VISIBLE_ROW_COUNT * TILE_SIZE);
+			if(dropCooldown > 0) {
+				dropCooldown--;
+			}
+			renderGame();
+			long delta = (System.nanoTime() - start) / 1000000L;
+			if(delta < FRAME_TIME) {
+				try {
+					Thread.sleep(FRAME_TIME - delta);
+				} catch(Exception e) {
+					e.printStackTrace();
 				}
 			}
 		}
-		g.setColor(Color.WHITE);
-		g.drawRect(0, 0, TILE_SIZE * COL_COUNT, TILE_SIZE * VISIBLE_ROW_COUNT);
 	}
-	private void drawTile(TileType type, int x, int y, Graphics g) {
-		drawTile(type.getBaseColor(), type.getLightColor(), type.getDarkColor(), x, y, g);
+	private void updateGame() {
+		if(board.isValidAndEmpty(orginTile, Columb, Row + 1, Rotation)) {
+			Row++;
+		} else {
+			board.addPiece(orginTile, Columb, Row, Rotation);
+			int cleared = board.checkLines();
+			if(cleared > 0) {
+				score += 50 << cleared;
+			}
+			gameSpeed += 0.035f;
+			logicTimer.setCyclesPerSecond(gameSpeed);
+			logicTimer.reset();
+			dropCooldown = 25;
+			level = (int)(gameSpeed * 1.70f);
+			spawnPiece();
+		}		
 	}
-	private void drawTile(Color base, Color light, Color dark, int x, int y, Graphics g) {
-		g.setColor(base);
-		g.fillRect(x, y, TILE_SIZE, TILE_SIZE);
-		g.setColor(dark);
-		g.fillRect(x, y + TILE_SIZE - SHADE_WIDTH, TILE_SIZE, SHADE_WIDTH);
-		g.fillRect(x + TILE_SIZE - SHADE_WIDTH, y, SHADE_WIDTH, TILE_SIZE);
-		g.setColor(light);
-		for(int i = 0; i < SHADE_WIDTH; i++) {
-			g.drawLine(x, y + i, x + TILE_SIZE - i - 1, y + i);
-			g.drawLine(x + i, y, x + i, y + TILE_SIZE - i - 1);
+	private void renderGame() {
+		board.repaint();
+		side.repaint();
+	}
+	private void resetGame() {
+		this.level = 1;
+		this.score = 0;
+		this.gameSpeed = 1.0f;
+		this.nextTile = Tiles.values()[random.nextInt(TYPE_COUNT)];
+		this.isNewGame = false;
+		this.isGameOver = false;		
+		board.clear();
+		logicTimer.reset();
+		logicTimer.setCyclesPerSecond(gameSpeed);
+		spawnPiece();
+	}
+	private void spawnPiece() {
+		this.orginTile = nextTile;
+		this.Columb = orginTile.getSpawnColumn();
+		this.Row = orginTile.getSpawnRow();
+		this.Rotation = 0;
+		this.nextTile = Tiles.values()[random.nextInt(TYPE_COUNT)];
+		if(!board.isValidAndEmpty(orginTile, Columb, Row, Rotation)) {
+			this.isGameOver = true;
+			logicTimer.setPaused(true);
+		}		
+	}
+	private void rotatePiece(int newRotation) {
+		int newColumn = Columb;
+		int newRow = Row;
+		int left = orginTile.getLeftInset(newRotation);
+		int right = orginTile.getRightInset(newRotation);
+		int top = orginTile.getTopInset(newRotation);
+		int bottom = orginTile.getBottomInset(newRotation);
+		if(Columb < -left) {
+			newColumn -= Columb - left;
+		} else if(Columb + orginTile.getDimension() - right >= Main.COL_COUNT) {
+			newColumn -= (Columb + orginTile.getDimension() - right) - Main.COL_COUNT + 1;
 		}
+		if(Row < -top) {
+			newRow -= Row - top;
+		} else if(Row + orginTile.getDimension() - bottom >= Main.ROW_COUNT) {
+			newRow -= (Row + orginTile.getDimension() - bottom) - Main.ROW_COUNT + 1;
+		}
+		if(board.isValidAndEmpty(orginTile, newColumn, newRow, newRotation)) {
+			Rotation = newRotation;
+			Row = newRow;
+			Columb = newColumn;
+		}
+	}
+	public boolean isPaused() {
+		return isPaused;
+	}
+	public boolean isGameOver() {
+		return isGameOver;
+	}
+	public boolean isNewGame() {
+		return isNewGame;
+	}
+	public int getScore() {
+		return score;
+	}
+	public int getLevel() {
+		return level;
+	}
+	public Tiles getTile() {
+		return orginTile;
+	}
+	public Tiles getNextPieceTile() {
+		return nextTile;
+	}
+	public int getColumb() {
+		return Columb;
+	}
+	public int getRow() {
+		return Row;
+	}
+	public int getRotation() {
+		return Rotation;
+	}
+	public static void main(String[] args) {
+		Tetris tetris = new Tetris();
+		tetris.startGame();
 	}
 
 }
