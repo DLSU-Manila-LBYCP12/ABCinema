@@ -13,21 +13,21 @@ import java.util.Random;
 import javax.swing.JFrame;
 public class Tetris extends JFrame {
 	private static final long FRAME_TIME = 1000L / 50L;
-	private static final int TYPE_COUNT = TileType.values().length;
-	private BoardPanel board;
-	private SidePanel side;
+	private static final int TYPE_COUNT = Tiles.values().length;
+	private Main board;
+	private final Menu side;
 	private boolean isPaused;
 	private boolean isNewGame;
 	private boolean isGameOver;
 	private int level;
 	private int score;
 	private Random random;
-	private Clock logicTimer;
-	private TileType currentType;
-	private TileType nextType;
-	private int currentCol;
-	private int currentRow;
-	private int currentRotation;
+        private Speed logicTimer;
+	private Tiles orginTile;
+	private Tiles nextTile;
+	private int Columb;
+	private int Row;
+	private int Rotation;
 	private int dropCooldown;
 	private float gameSpeed;
 	private Tetris() {
@@ -35,8 +35,8 @@ public class Tetris extends JFrame {
 		setLayout(new BorderLayout());
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);
-		this.board = new BoardPanel(this);
-		this.side = new SidePanel(this);
+		this.board = new Main(this);
+		this.side = new Menu(this);
 		add(board, BorderLayout.CENTER);
 		add(side, BorderLayout.EAST);
 		addKeyListener(new KeyAdapter() {
@@ -49,23 +49,23 @@ public class Tetris extends JFrame {
 					}
 					break;
 				case KeyEvent.VK_A:
-					if(!isPaused && board.isValidAndEmpty(currentType, currentCol - 1, currentRow, currentRotation)) {
-						currentCol--;
+					if(!isPaused && board.isValidAndEmpty(orginTile, Columb - 1, Row, Rotation)) {
+						Columb--;
 					}
 					break;
 				case KeyEvent.VK_D:
-					if(!isPaused && board.isValidAndEmpty(currentType, currentCol + 1, currentRow, currentRotation)) {
-						currentCol++;
+					if(!isPaused && board.isValidAndEmpty(orginTile, Columb + 1, Row, Rotation)) {
+						Columb++;
 					}
 					break;
 				case KeyEvent.VK_Q:
 					if(!isPaused) {
-						rotatePiece((currentRotation == 0) ? 3 : currentRotation - 1);
+						rotatePiece((Rotation == 0) ? 3 : Rotation - 1);
 					}
 					break;
 				case KeyEvent.VK_E:
 					if(!isPaused) {
-						rotatePiece((currentRotation == 3) ? 0 : currentRotation + 1);
+						rotatePiece((Rotation == 3) ? 0 : Rotation + 1);
 					}
 					break;
 				case KeyEvent.VK_P:
@@ -79,9 +79,9 @@ public class Tetris extends JFrame {
 						resetGame();
 					}
 					break;
-				}
-			}
-			
+                                 
+                                }
+			}                            
 			@Override
 			public void keyReleased(KeyEvent e) {
 				switch(e.getKeyCode()) {
@@ -91,8 +91,7 @@ public class Tetris extends JFrame {
 					break;
 				}
 				
-			}
-			
+			}			
 		});
 		pack();
 		setLocationRelativeTo(null);
@@ -102,7 +101,7 @@ public class Tetris extends JFrame {
 		this.random = new Random();
 		this.isNewGame = true;
 		this.gameSpeed = 1.0f;
-		this.logicTimer = new Clock(gameSpeed);
+		this.logicTimer = new Speed(gameSpeed);
 		logicTimer.setPaused(true);
 		while(true) {
 			long start = System.nanoTime();
@@ -125,10 +124,10 @@ public class Tetris extends JFrame {
 		}
 	}
 	private void updateGame() {
-		if(board.isValidAndEmpty(currentType, currentCol, currentRow + 1, currentRotation)) {
-			currentRow++;
+		if(board.isValidAndEmpty(orginTile, Columb, Row + 1, Rotation)) {
+			Row++;
 		} else {
-			board.addPiece(currentType, currentCol, currentRow, currentRotation);
+			board.addPiece(orginTile, Columb, Row, Rotation);
 			int cleared = board.checkLines();
 			if(cleared > 0) {
 				score += 50 << cleared;
@@ -149,7 +148,7 @@ public class Tetris extends JFrame {
 		this.level = 1;
 		this.score = 0;
 		this.gameSpeed = 1.0f;
-		this.nextType = TileType.values()[random.nextInt(TYPE_COUNT)];
+		this.nextTile = Tiles.values()[random.nextInt(TYPE_COUNT)];
 		this.isNewGame = false;
 		this.isGameOver = false;		
 		board.clear();
@@ -158,37 +157,37 @@ public class Tetris extends JFrame {
 		spawnPiece();
 	}
 	private void spawnPiece() {
-		this.currentType = nextType;
-		this.currentCol = currentType.getSpawnColumn();
-		this.currentRow = currentType.getSpawnRow();
-		this.currentRotation = 0;
-		this.nextType = TileType.values()[random.nextInt(TYPE_COUNT)];
-		if(!board.isValidAndEmpty(currentType, currentCol, currentRow, currentRotation)) {
+		this.orginTile = nextTile;
+		this.Columb = orginTile.getSpawnColumn();
+		this.Row = orginTile.getSpawnRow();
+		this.Rotation = 0;
+		this.nextTile = Tiles.values()[random.nextInt(TYPE_COUNT)];
+		if(!board.isValidAndEmpty(orginTile, Columb, Row, Rotation)) {
 			this.isGameOver = true;
 			logicTimer.setPaused(true);
 		}		
 	}
 	private void rotatePiece(int newRotation) {
-		int newColumn = currentCol;
-		int newRow = currentRow;
-		int left = currentType.getLeftInset(newRotation);
-		int right = currentType.getRightInset(newRotation);
-		int top = currentType.getTopInset(newRotation);
-		int bottom = currentType.getBottomInset(newRotation);
-		if(currentCol < -left) {
-			newColumn -= currentCol - left;
-		} else if(currentCol + currentType.getDimension() - right >= BoardPanel.COL_COUNT) {
-			newColumn -= (currentCol + currentType.getDimension() - right) - BoardPanel.COL_COUNT + 1;
+		int newColumn = Columb;
+		int newRow = Row;
+		int left = orginTile.getLeftInset(newRotation);
+		int right = orginTile.getRightInset(newRotation);
+		int top = orginTile.getTopInset(newRotation);
+		int bottom = orginTile.getBottomInset(newRotation);
+		if(Columb < -left) {
+			newColumn -= Columb - left;
+		} else if(Columb + orginTile.getDimension() - right >= Main.COL_COUNT) {
+			newColumn -= (Columb + orginTile.getDimension() - right) - Main.COL_COUNT + 1;
 		}
-		if(currentRow < -top) {
-			newRow -= currentRow - top;
-		} else if(currentRow + currentType.getDimension() - bottom >= BoardPanel.ROW_COUNT) {
-			newRow -= (currentRow + currentType.getDimension() - bottom) - BoardPanel.ROW_COUNT + 1;
+		if(Row < -top) {
+			newRow -= Row - top;
+		} else if(Row + orginTile.getDimension() - bottom >= Main.ROW_COUNT) {
+			newRow -= (Row + orginTile.getDimension() - bottom) - Main.ROW_COUNT + 1;
 		}
-		if(board.isValidAndEmpty(currentType, newColumn, newRow, newRotation)) {
-			currentRotation = newRotation;
-			currentRow = newRow;
-			currentCol = newColumn;
+		if(board.isValidAndEmpty(orginTile, newColumn, newRow, newRotation)) {
+			Rotation = newRotation;
+			Row = newRow;
+			Columb = newColumn;
 		}
 	}
 	public boolean isPaused() {
@@ -206,20 +205,20 @@ public class Tetris extends JFrame {
 	public int getLevel() {
 		return level;
 	}
-	public TileType getPieceType() {
-		return currentType;
+	public Tiles getTile() {
+		return orginTile;
 	}
-	public TileType getNextPieceType() {
-		return nextType;
+	public Tiles getNextPieceTile() {
+		return nextTile;
 	}
-	public int getPieceCol() {
-		return currentCol;
+	public int getColumb() {
+		return Columb;
 	}
-	public int getPieceRow() {
-		return currentRow;
+	public int getRow() {
+		return Row;
 	}
-	public int getPieceRotation() {
-		return currentRotation;
+	public int getRotation() {
+		return Rotation;
 	}
 	public static void main(String[] args) {
 		Tetris tetris = new Tetris();
