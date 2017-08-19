@@ -10,6 +10,8 @@ package snake;
  * @author Fides
  */
 
+
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -17,16 +19,11 @@ import java.awt.Graphics;
 import java.awt.Point;
 import javax.swing.JPanel;
 
-public class DataScreen extends JPanel {
-    public static final int columnCount = 25;
-    public static final int rowCount = 25;
-    public static final int tileSize = 20;
-    public static final int eyeLarge = tileSize/3;
-    public static final int eyeSmall = tileSize/6;
-    public static final int eyeLength = tileSize/5;
+public class DataScreen extends JPanel implements SnakeConstants{
+    
     private Main game;
     private snakePart[] tiles;
-    private static final Font font = new Font("Tahoma", Font.BOLD, 25);
+    private static final Font font = new Font("Tahome", Font.BOLD, 30);
     
     private void drawTile(int x, int y, snakePart type, Graphics g){
         switch(type){
@@ -45,38 +42,12 @@ public class DataScreen extends JPanel {
                 g.setColor(headC);
                 g.fillRect(x, y, tileSize, tileSize);
                 g.setColor(Color.black);
-        
-        switch(game.getDirection()){
-            case north:{
-                int baseY = y + eyeSmall;
-                g.drawLine(x + eyeLarge, baseY, x + eyeLarge, baseY + eyeLength);
-                g.drawLine(x + tileSize - eyeLarge, baseY, x + tileSize - eyeLarge, baseY + eyeLength);
-                break;
-            }
-            case south:{
-                int baseY = y + tileSize - eyeSmall;
-                g.drawLine(x + eyeLarge, baseY, x + eyeLarge, baseY - eyeLength);
-                g.drawLine(x + tileSize - eyeLarge, baseY, x + tileSize - eyeLarge, baseY - eyeLength);
-                break;
-            }
-            case west:{
-                int baseX = x + eyeSmall;
-                g.drawLine(baseX, y + eyeLarge, baseX + eyeLength, y + eyeLarge);
-                g.drawLine(baseX, y + tileSize - eyeLarge, baseX + eyeLength, y + tileSize - eyeLarge);
-                break;
-            }
-            case east:{
-                int baseX = x + tileSize +-eyeSmall;
-                g.drawLine(baseX, y + eyeLarge, baseX - eyeLength, y + eyeLarge);
-                g.drawLine(baseX, y + tileSize - eyeLarge, baseX - eyeLength, y + tileSize - eyeLarge);
-                break;    
-            }
-        }
-        break;
         }
     }
     
     Color main = Color.decode("#FDF2E9");
+    
+   
     
     public DataScreen(Main game){
         this.game = game;
@@ -91,62 +62,63 @@ public class DataScreen extends JPanel {
         }
     }
     
-    public void setTile(int x, int y, snakePart type){
-        tiles[y * rowCount + x] = type;
+    public void setTile(int x, int y, snakePart part){
+        tiles[y * rowCount + x] = part;
     }
     
-    public void setTile(Point point, snakePart type){
-        setTile(point.x, point.y, type);
+    public void setTile(Point point, snakePart part){
+        setTile(point.x, point.y, part);
     }
     
     public snakePart getTile(int x, int y){
         return tiles[y * rowCount + x];
     }
     
-    public void paintComponent(Graphics g){
-        super.paintComponent(g);
+    @Override
+    public void paintComponent(Graphics graphics){
+        super.paintComponent(graphics);
         for(int x = 0; x < columnCount; x++){
             for(int y = 0; y < rowCount; y++){
-                snakePart type = getTile(x,y);
-                if(type != null){
-                    drawTile(x * tileSize, y * tileSize, type, g);
+                snakePart part = getTile(x,y);
+                if(part != null){
+                    drawTile(x * tileSize, y * tileSize, part, graphics);
                 }
             }
         }
         
         Color tileColor = Color.decode("#FAE5D3");
         
-        g.setColor(tileColor);
-        g.drawRect(0, 0, getWidth() - 1, getHeight() - 1);
+        graphics.setColor(tileColor);
+        graphics.drawRect(0, 0, getWidth() - 1, getHeight() - 1);
         for(int x = 0; x < columnCount; x++){
             for(int y = 0; y < rowCount; y++){
-                g.drawLine(x * tileSize, 0, x * tileSize, getHeight());
-                g.drawLine(0, y * tileSize, getWidth(), y * tileSize);
+                graphics.drawLine(x * tileSize, 0, x * tileSize, getHeight());
+                graphics.drawLine(0, y * tileSize, getWidth(), y * tileSize);
             }
         }
         
-        Color gameC = Color.decode("#A04000");
+        Color gameC = Color.decode("#F97300");
         
         if(game.isGameOver() || game.isNewGame() || game.isPaused()){
-            g.setColor(gameC);
+            graphics.setColor(gameC);
             int centerX = getWidth()/2;
             int centerY = getHeight()/2;
             
             String largeMessage = null;
             String smallMessage = null;
             if(game.isNewGame()){
-                largeMessage = "Snake Game";
+                largeMessage = "Snake!";
                 smallMessage = "Press ENTER to start";
             } else if(game.isGameOver()){
-                largeMessage = "Game Over";
+                largeMessage = "Game Over!";
                 smallMessage = "Press ENTER to restart";
             } else if(game.isPaused()){
                 largeMessage = "Paused";
-                smallMessage = "Press P to resume";
+                smallMessage = "Press P to continue";
             }
-            g.setFont(font);
-            g.drawString(largeMessage, centerX - g.getFontMetrics().stringWidth(largeMessage)/2, centerY - 50);
-            g.drawString(smallMessage, centerX - g.getFontMetrics().stringWidth(smallMessage)/2, centerY + 50);
+            graphics.setFont(font);
+            graphics.drawString(largeMessage, centerX - graphics.getFontMetrics().stringWidth(largeMessage)/2, centerY - 50);
+            graphics.drawString(smallMessage, centerX - graphics.getFontMetrics().stringWidth(smallMessage)/2, centerY + 50);
         }
     }
     

@@ -9,17 +9,20 @@ package snake;
  *
  * @author Fides
  */
+import acm.graphics.GImage;
+import static acm.util.JTFTools.pause;
 import java.awt.BorderLayout;
 import java.awt.Point;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.LinkedList;
 import java.util.Random;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
-public class Main extends JFrame {
-    private static final int minSnakeLength = 5;
-    private static final int maxDirections = 3;
+public class Main extends JFrame implements SnakeConstants{
     private DataScreen board;
     private Side side;
     private Random random;
@@ -30,20 +33,29 @@ public class Main extends JFrame {
     private LinkedList<Direction> directions;
     private LinkedList<Point> snake;
     private int fruitsEaten;
-    
+    //private Opening open;
+
     private Main(){
-        super("Snake Remake");
+        super("ABCinema Mini Game: Snake");
         setLayout(new BorderLayout());
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
         
+        
+        //this.open = new Opening(this);
         this.board = new DataScreen(this);
         this.side = new Side(this);
+        
+        
+        //pause(500);
+        //removeAll();
+        
         
         add(board, BorderLayout.CENTER);
         add(side, BorderLayout.EAST);
         
         addKeyListener(new KeyAdapter(){
+            @Override
             public void keyPressed(KeyEvent e){
                 switch(e.getKeyCode()){
                     case KeyEvent.VK_UP:

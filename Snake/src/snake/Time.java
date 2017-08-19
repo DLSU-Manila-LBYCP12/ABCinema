@@ -21,18 +21,18 @@ public class Time {
         reset();
     }
     
-    public void setCyclesPerSecond(float cyclesPerSecond){
+    public final void setCyclesPerSecond(float cyclesPerSecond){
         this.milliPerCycle = (1.0f / cyclesPerSecond) * 1000;
     }
     
-    public void reset(){
+    public final void reset(){
         this.elapsedCycle = 0; 
         this.excessCycle = 0.0f;
         this.lastUpdate = getCurrentTime();
         this.isPaused = false;
     }
     
-    private static final long getCurrentTime(){
+    private static long getCurrentTime(){
         return (System.nanoTime()/1000000L);
     }
     
