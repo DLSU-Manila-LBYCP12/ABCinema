@@ -28,8 +28,7 @@ public class WSLT extends javax.swing.JFrame {
     private void initComponents() {
 
         panelWSLT = new javax.swing.JPanel();
-        WSLTAmity = new javax.swing.JPanel();
-        WSLTdetailAmity = new javax.swing.JButton();
+        Amity = new javax.swing.JPanel();
         WSLTbuttonAmity = new javax.swing.JButton();
         WSLTpanelschedAmity = new javax.swing.JPanel();
         WSLTlabelAmity = new javax.swing.JLabel();
@@ -38,8 +37,7 @@ public class WSLT extends javax.swing.JFrame {
         WSLTlabelSchedAmity = new javax.swing.JLabel();
         WSLTbuttonReserveAmity = new javax.swing.JButton();
         WSLTlabelShowAmity = new javax.swing.JLabel();
-        WSLTJohnWick = new javax.swing.JPanel();
-        WSLTdetailJohnWick = new javax.swing.JButton();
+        JohnWick = new javax.swing.JPanel();
         WSLTbuttonJohnWick = new javax.swing.JButton();
         WSLTpanelschedJohnWick = new javax.swing.JPanel();
         WSLTlabelJohnWick = new javax.swing.JLabel();
@@ -48,8 +46,7 @@ public class WSLT extends javax.swing.JFrame {
         TYAlabelSchedCars = new javax.swing.JLabel();
         WSLTbuttonReserveJohnWick = new javax.swing.JButton();
         WSLTlabelShowJohnWick = new javax.swing.JLabel();
-        WSLTBabyDriver = new javax.swing.JPanel();
-        WSLTdetailBabyDriver = new javax.swing.JButton();
+        BabyDriver = new javax.swing.JPanel();
         WSLTbuttonBabyDriver = new javax.swing.JButton();
         WSLTpanelschedBabyDriver = new javax.swing.JPanel();
         WSLTlabelBabyDriver = new javax.swing.JLabel();
@@ -58,8 +55,7 @@ public class WSLT extends javax.swing.JFrame {
         WSLTlabelSchedBabyDriver = new javax.swing.JLabel();
         WSLTbuttonReserveBabyDriver = new javax.swing.JButton();
         WSLTlabelShowBabyDriver = new javax.swing.JLabel();
-        WSLTBaywatch = new javax.swing.JPanel();
-        WSLTdetailBaywatch = new javax.swing.JButton();
+        Baywatch = new javax.swing.JPanel();
         WSLTbuttonBaywatch = new javax.swing.JButton();
         WSLTpanelschedBaywatch = new javax.swing.JPanel();
         WSLTlabelBaywatch = new javax.swing.JLabel();
@@ -71,15 +67,7 @@ public class WSLT extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        WSLTAmity.setBackground(new java.awt.Color(255, 255, 255));
-
-        WSLTdetailAmity.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonRating/buttonR13.png"))); // NOI18N
-        WSLTdetailAmity.setBorderPainted(false);
-        WSLTdetailAmity.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                WSLTdetailAmityActionPerformed(evt);
-            }
-        });
+        Amity.setBackground(new java.awt.Color(255, 255, 255));
 
         WSLTbuttonAmity.setIcon(new javax.swing.ImageIcon(getClass().getResource("/posters/posterAmityville.png"))); // NOI18N
         WSLTbuttonAmity.setBorderPainted(false);
@@ -112,6 +100,11 @@ public class WSLT extends javax.swing.JFrame {
         WSLTbuttonReserveAmity.setBorderPainted(false);
         WSLTbuttonReserveAmity.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/buttonReserveLight.png"))); // NOI18N
         WSLTbuttonReserveAmity.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/buttonReserveLight.png"))); // NOI18N
+        WSLTbuttonReserveAmity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                WSLTbuttonReserveAmityActionPerformed(evt);
+            }
+        });
 
         WSLTlabelShowAmity.setBackground(new java.awt.Color(255, 255, 255));
         WSLTlabelShowAmity.setFont(new java.awt.Font("Novecento sans wide", 0, 10)); // NOI18N
@@ -154,42 +147,30 @@ public class WSLT extends javax.swing.JFrame {
                 .addComponent(WSLTbuttonReserveAmity))
         );
 
-        javax.swing.GroupLayout WSLTAmityLayout = new javax.swing.GroupLayout(WSLTAmity);
-        WSLTAmity.setLayout(WSLTAmityLayout);
-        WSLTAmityLayout.setHorizontalGroup(
-            WSLTAmityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(WSLTAmityLayout.createSequentialGroup()
+        javax.swing.GroupLayout AmityLayout = new javax.swing.GroupLayout(Amity);
+        Amity.setLayout(AmityLayout);
+        AmityLayout.setHorizontalGroup(
+            AmityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AmityLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(WSLTAmityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(WSLTbuttonAmity, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(WSLTdetailAmity, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(WSLTbuttonAmity, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(WSLTpanelschedAmity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        WSLTAmityLayout.setVerticalGroup(
-            WSLTAmityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(WSLTAmityLayout.createSequentialGroup()
+        AmityLayout.setVerticalGroup(
+            AmityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AmityLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(WSLTAmityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(AmityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(WSLTpanelschedAmity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(WSLTAmityLayout.createSequentialGroup()
+                    .addGroup(AmityLayout.createSequentialGroup()
                         .addComponent(WSLTbuttonAmity, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(WSLTdetailAmity, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
-        WSLTJohnWick.setBackground(new java.awt.Color(255, 255, 255));
-
-        WSLTdetailJohnWick.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonRating/buttonR16.png"))); // NOI18N
-        WSLTdetailJohnWick.setBorderPainted(false);
-        WSLTdetailJohnWick.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                WSLTdetailJohnWickActionPerformed(evt);
-            }
-        });
+        JohnWick.setBackground(new java.awt.Color(255, 255, 255));
 
         WSLTbuttonJohnWick.setIcon(new javax.swing.ImageIcon(getClass().getResource("/posters/posterJohnWick2.png"))); // NOI18N
         WSLTbuttonJohnWick.setBorderPainted(false);
@@ -223,6 +204,11 @@ public class WSLT extends javax.swing.JFrame {
         WSLTbuttonReserveJohnWick.setBorderPainted(false);
         WSLTbuttonReserveJohnWick.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/buttonReserveLight.png"))); // NOI18N
         WSLTbuttonReserveJohnWick.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/buttonReserveLight.png"))); // NOI18N
+        WSLTbuttonReserveJohnWick.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                WSLTbuttonReserveJohnWickActionPerformed(evt);
+            }
+        });
 
         WSLTlabelShowJohnWick.setBackground(new java.awt.Color(255, 255, 255));
         WSLTlabelShowJohnWick.setFont(new java.awt.Font("Novecento sans wide", 0, 10)); // NOI18N
@@ -266,39 +252,27 @@ public class WSLT extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout WSLTJohnWickLayout = new javax.swing.GroupLayout(WSLTJohnWick);
-        WSLTJohnWick.setLayout(WSLTJohnWickLayout);
-        WSLTJohnWickLayout.setHorizontalGroup(
-            WSLTJohnWickLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(WSLTJohnWickLayout.createSequentialGroup()
+        javax.swing.GroupLayout JohnWickLayout = new javax.swing.GroupLayout(JohnWick);
+        JohnWick.setLayout(JohnWickLayout);
+        JohnWickLayout.setHorizontalGroup(
+            JohnWickLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JohnWickLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(WSLTJohnWickLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(WSLTbuttonJohnWick, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(WSLTdetailJohnWick, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(WSLTbuttonJohnWick, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(WSLTpanelschedJohnWick, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        WSLTJohnWickLayout.setVerticalGroup(
-            WSLTJohnWickLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(WSLTJohnWickLayout.createSequentialGroup()
+        JohnWickLayout.setVerticalGroup(
+            JohnWickLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JohnWickLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(WSLTbuttonJohnWick, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(WSLTdetailJohnWick, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(WSLTpanelschedJohnWick, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        WSLTBabyDriver.setBackground(new java.awt.Color(255, 255, 255));
-
-        WSLTdetailBabyDriver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonRating/buttonR13.png"))); // NOI18N
-        WSLTdetailBabyDriver.setBorderPainted(false);
-        WSLTdetailBabyDriver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                WSLTdetailBabyDriverActionPerformed(evt);
-            }
-        });
+        BabyDriver.setBackground(new java.awt.Color(255, 255, 255));
 
         WSLTbuttonBabyDriver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/posters/posterBabyDriver.png"))); // NOI18N
         WSLTbuttonBabyDriver.setBorderPainted(false);
@@ -331,6 +305,11 @@ public class WSLT extends javax.swing.JFrame {
         WSLTbuttonReserveBabyDriver.setBorderPainted(false);
         WSLTbuttonReserveBabyDriver.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/buttonReserveLight.png"))); // NOI18N
         WSLTbuttonReserveBabyDriver.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/buttonReserveLight.png"))); // NOI18N
+        WSLTbuttonReserveBabyDriver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                WSLTbuttonReserveBabyDriverActionPerformed(evt);
+            }
+        });
 
         WSLTlabelShowBabyDriver.setBackground(new java.awt.Color(255, 255, 255));
         WSLTlabelShowBabyDriver.setFont(new java.awt.Font("Novecento sans wide", 0, 10)); // NOI18N
@@ -373,42 +352,30 @@ public class WSLT extends javax.swing.JFrame {
                 .addComponent(WSLTbuttonReserveBabyDriver))
         );
 
-        javax.swing.GroupLayout WSLTBabyDriverLayout = new javax.swing.GroupLayout(WSLTBabyDriver);
-        WSLTBabyDriver.setLayout(WSLTBabyDriverLayout);
-        WSLTBabyDriverLayout.setHorizontalGroup(
-            WSLTBabyDriverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(WSLTBabyDriverLayout.createSequentialGroup()
+        javax.swing.GroupLayout BabyDriverLayout = new javax.swing.GroupLayout(BabyDriver);
+        BabyDriver.setLayout(BabyDriverLayout);
+        BabyDriverLayout.setHorizontalGroup(
+            BabyDriverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BabyDriverLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(WSLTBabyDriverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(WSLTbuttonBabyDriver, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(WSLTdetailBabyDriver, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(WSLTbuttonBabyDriver, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(WSLTpanelschedBabyDriver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        WSLTBabyDriverLayout.setVerticalGroup(
-            WSLTBabyDriverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(WSLTBabyDriverLayout.createSequentialGroup()
+        BabyDriverLayout.setVerticalGroup(
+            BabyDriverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BabyDriverLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(WSLTBabyDriverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(BabyDriverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(WSLTpanelschedBabyDriver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(WSLTBabyDriverLayout.createSequentialGroup()
+                    .addGroup(BabyDriverLayout.createSequentialGroup()
                         .addComponent(WSLTbuttonBabyDriver, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(WSLTdetailBabyDriver, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
-        WSLTBaywatch.setBackground(new java.awt.Color(255, 255, 255));
-
-        WSLTdetailBaywatch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonRating/buttonR13.png"))); // NOI18N
-        WSLTdetailBaywatch.setBorderPainted(false);
-        WSLTdetailBaywatch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                WSLTdetailBaywatchActionPerformed(evt);
-            }
-        });
+        Baywatch.setBackground(new java.awt.Color(255, 255, 255));
 
         WSLTbuttonBaywatch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/posters/posterBaywatch.png"))); // NOI18N
         WSLTbuttonBaywatch.setBorderPainted(false);
@@ -441,6 +408,11 @@ public class WSLT extends javax.swing.JFrame {
         WSLTbuttonReserveBaywatch.setBorderPainted(false);
         WSLTbuttonReserveBaywatch.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/buttonReserveLight.png"))); // NOI18N
         WSLTbuttonReserveBaywatch.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/buttonReserveLight.png"))); // NOI18N
+        WSLTbuttonReserveBaywatch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                WSLTbuttonReserveBaywatchActionPerformed(evt);
+            }
+        });
 
         WSLTlabelShowBaywatch.setBackground(new java.awt.Color(255, 255, 255));
         WSLTlabelShowBaywatch.setFont(new java.awt.Font("Novecento sans wide", 0, 10)); // NOI18N
@@ -483,29 +455,25 @@ public class WSLT extends javax.swing.JFrame {
                 .addComponent(WSLTbuttonReserveBaywatch))
         );
 
-        javax.swing.GroupLayout WSLTBaywatchLayout = new javax.swing.GroupLayout(WSLTBaywatch);
-        WSLTBaywatch.setLayout(WSLTBaywatchLayout);
-        WSLTBaywatchLayout.setHorizontalGroup(
-            WSLTBaywatchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(WSLTBaywatchLayout.createSequentialGroup()
+        javax.swing.GroupLayout BaywatchLayout = new javax.swing.GroupLayout(Baywatch);
+        Baywatch.setLayout(BaywatchLayout);
+        BaywatchLayout.setHorizontalGroup(
+            BaywatchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BaywatchLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(WSLTBaywatchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(WSLTbuttonBaywatch, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(WSLTdetailBaywatch, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(WSLTbuttonBaywatch, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(WSLTpanelschedBaywatch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        WSLTBaywatchLayout.setVerticalGroup(
-            WSLTBaywatchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(WSLTBaywatchLayout.createSequentialGroup()
+        BaywatchLayout.setVerticalGroup(
+            BaywatchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BaywatchLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(WSLTBaywatchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(BaywatchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(WSLTpanelschedBaywatch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(WSLTBaywatchLayout.createSequentialGroup()
+                    .addGroup(BaywatchLayout.createSequentialGroup()
                         .addComponent(WSLTbuttonBaywatch, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(WSLTdetailBaywatch, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -517,26 +485,26 @@ public class WSLT extends javax.swing.JFrame {
             .addGroup(panelWSLTLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(panelWSLTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(WSLTAmity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(WSLTBabyDriver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Amity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BabyDriver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(panelWSLTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(WSLTJohnWick, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(WSLTBaywatch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JohnWick, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Baywatch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30))
         );
         panelWSLTLayout.setVerticalGroup(
             panelWSLTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelWSLTLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(panelWSLTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(WSLTAmity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(WSLTJohnWick, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(30, 30, 30)
-                .addGroup(panelWSLTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(WSLTBabyDriver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(WSLTBaywatch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(30, 30, 30))
+                .addGroup(panelWSLTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(Amity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JohnWick, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addGroup(panelWSLTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(BabyDriver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Baywatch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -555,21 +523,25 @@ public class WSLT extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void WSLTdetailAmityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WSLTdetailAmityActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_WSLTdetailAmityActionPerformed
+    private void WSLTbuttonReserveAmityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WSLTbuttonReserveAmityActionPerformed
+        WSLTAmity WSLTAmity = new WSLTAmity();
+        WSLTAmity.setVisible(true);
+    }//GEN-LAST:event_WSLTbuttonReserveAmityActionPerformed
 
-    private void WSLTdetailJohnWickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WSLTdetailJohnWickActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_WSLTdetailJohnWickActionPerformed
+    private void WSLTbuttonReserveBabyDriverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WSLTbuttonReserveBabyDriverActionPerformed
+       WSLTBabyDriver WSLTBabyDriver = new WSLTBabyDriver();
+        WSLTBabyDriver.setVisible(true);
+    }//GEN-LAST:event_WSLTbuttonReserveBabyDriverActionPerformed
 
-    private void WSLTdetailBabyDriverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WSLTdetailBabyDriverActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_WSLTdetailBabyDriverActionPerformed
+    private void WSLTbuttonReserveJohnWickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WSLTbuttonReserveJohnWickActionPerformed
+       WSLTJohnWick WSLTJohnWick = new WSLTJohnWick();
+        WSLTJohnWick.setVisible(true);
+    }//GEN-LAST:event_WSLTbuttonReserveJohnWickActionPerformed
 
-    private void WSLTdetailBaywatchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WSLTdetailBaywatchActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_WSLTdetailBaywatchActionPerformed
+    private void WSLTbuttonReserveBaywatchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WSLTbuttonReserveBaywatchActionPerformed
+        WSLTBaywatch WSLTBaywatch = new WSLTBaywatch();
+        WSLTBaywatch.setVisible(true);
+    }//GEN-LAST:event_WSLTbuttonReserveBaywatchActionPerformed
 
     /**
      * @param args the command line arguments
@@ -607,13 +579,13 @@ public class WSLT extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Amity;
+    private javax.swing.JPanel BabyDriver;
+    private javax.swing.JPanel Baywatch;
+    private javax.swing.JPanel JohnWick;
     private javax.swing.JLabel TYAlabelGenreCars;
     private javax.swing.JLabel TYAlabelRTimeCars;
     private javax.swing.JLabel TYAlabelSchedCars;
-    private javax.swing.JPanel WSLTAmity;
-    private javax.swing.JPanel WSLTBabyDriver;
-    private javax.swing.JPanel WSLTBaywatch;
-    private javax.swing.JPanel WSLTJohnWick;
     private javax.swing.JButton WSLTbuttonAmity;
     private javax.swing.JButton WSLTbuttonBabyDriver;
     private javax.swing.JButton WSLTbuttonBaywatch;
@@ -622,10 +594,6 @@ public class WSLT extends javax.swing.JFrame {
     private javax.swing.JButton WSLTbuttonReserveBabyDriver;
     private javax.swing.JButton WSLTbuttonReserveBaywatch;
     private javax.swing.JButton WSLTbuttonReserveJohnWick;
-    private javax.swing.JButton WSLTdetailAmity;
-    private javax.swing.JButton WSLTdetailBabyDriver;
-    private javax.swing.JButton WSLTdetailBaywatch;
-    private javax.swing.JButton WSLTdetailJohnWick;
     private javax.swing.JLabel WSLTlabelAmity;
     private javax.swing.JLabel WSLTlabelBabyDriver;
     private javax.swing.JLabel WSLTlabelBaywatch;

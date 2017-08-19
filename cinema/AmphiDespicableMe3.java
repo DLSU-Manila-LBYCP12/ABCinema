@@ -8,6 +8,9 @@ package cinema;
 import static java.awt.image.ImageObserver.HEIGHT;
 import java.util.Random;
 import javax.swing.JOptionPane;
+import project.seatList;
+
+
 
 
 /**
@@ -16,6 +19,8 @@ import javax.swing.JOptionPane;
  */
 public class AmphiDespicableMe3 extends javax.swing.JFrame {
 
+    seatList seatListDM = new seatList();
+    
     
     /**
      * Creates new form AmphiDespicableMe3
@@ -1623,132 +1628,171 @@ public class AmphiDespicableMe3 extends javax.swing.JFrame {
         //ROW A
         if(A1.isSelected()==true){
                 A1.setEnabled(false);
+                seatListDM.reserveSeats(1);
         }
         if(A2.isSelected()==true){
                 A2.setEnabled(false);
+                seatListDM.reserveSeats(2);
         }
         if(A3.isSelected()==true){
                 A3.setEnabled(false);
+                seatListDM.reserveSeats(3);
         }
         if(A4.isSelected()==true){
                 A4.setEnabled(false);
+                seatListDM.reserveSeats(4);
         }
         if(A5.isSelected()==true){
                 A5.setEnabled(false);
+                seatListDM.reserveSeats(5);
         }
         if(A6.isSelected()==true){
                 A6.setEnabled(false);
+                seatListDM.reserveSeats(6);
         }
         if(A7.isSelected()==true){
                 A7.setEnabled(false);
+                seatListDM.reserveSeats(7);
         }
         if(A8.isSelected()==true){
                 A8.setEnabled(false);
+                seatListDM.reserveSeats(8);
         }
         if(A9.isSelected()==true){
                 A9.setEnabled(false);
+                seatListDM.reserveSeats(9);
         }
         if(A10.isSelected()==true){
                 A10.setEnabled(false);
+                seatListDM.reserveSeats(10);
         }
             
         //ROW B
         if(B1.isSelected()==true){
                 B1.setEnabled(false);
+                seatListDM.reserveSeats(11);
         }
         if(B2.isSelected()==true){
                 B2.setEnabled(false);
+                seatListDM.reserveSeats(12);
         }
         if(B3.isSelected()==true){
                 B3.setEnabled(false);
+                seatListDM.reserveSeats(13);
         }
         if(B4.isSelected()==true){
                 B4.setEnabled(false);
+                seatListDM.reserveSeats(14);
         }
         if(B5.isSelected()==true){
                 B5.setEnabled(false);
+                seatListDM.reserveSeats(15);
         }
         if(B6.isSelected()==true){
                 B6.setEnabled(false);
+                seatListDM.reserveSeats(16);
         }
         if(B7.isSelected()==true){
                 B7.setEnabled(false);
+                seatListDM.reserveSeats(17);
         }
         if(B8.isSelected()==true){
                 B8.setEnabled(false);
+                seatListDM.reserveSeats(18);
         }
         if(B9.isSelected()==true){
                 B9.setEnabled(false);
+                seatListDM.reserveSeats(19);
         }
         if(B10.isSelected()==true){
                 B10.setEnabled(false);
+                seatListDM.reserveSeats(20);
         }
         
         //ROW C
         if(C1.isSelected()==true){
                 C1.setEnabled(false);
+                seatListDM.reserveSeats(21);
         }
         if(C2.isSelected()==true){
                 C2.setEnabled(false);
+                seatListDM.reserveSeats(22);
         }
         if(C3.isSelected()==true){
                 C3.setEnabled(false);
+                seatListDM.reserveSeats(23);
         }
         if(C4.isSelected()==true){
                 C4.setEnabled(false);
+                seatListDM.reserveSeats(24);
         }
         if(C5.isSelected()==true){
                 C5.setEnabled(false);
+                seatListDM.reserveSeats(25);
         }
         if(C6.isSelected()==true){
                 C6.setEnabled(false);
+                seatListDM.reserveSeats(26);
         }
         if(C7.isSelected()==true){
                 C7.setEnabled(false);
+                seatListDM.reserveSeats(27);
         }
         if(C8.isSelected()==true){
                 C8.setEnabled(false);
+                seatListDM.reserveSeats(28);
         }
         if(C9.isSelected()==true){
                 C9.setEnabled(false);
+                seatListDM.reserveSeats(29);
         }
         if(C10.isSelected()==true){
                 C10.setEnabled(false);
+                seatListDM.reserveSeats(30);
         }
         
         //ROW D
         if(D1.isSelected()==true){
                 D1.setEnabled(false);
+                seatListDM.reserveSeats(31);
         }
         if(D2.isSelected()==true){
                 D2.setEnabled(false);
+                seatListDM.reserveSeats(32);
         }
         if(D3.isSelected()==true){
                 D3.setEnabled(false);
+                seatListDM.reserveSeats(33);
         }
         if(D4.isSelected()==true){
                 D4.setEnabled(false);
+                seatListDM.reserveSeats(34);
         }
         if(D5.isSelected()==true){
                 D5.setEnabled(false);
+                seatListDM.reserveSeats(35);
         }
         if(D6.isSelected()==true){
                 D6.setEnabled(false);
+                seatListDM.reserveSeats(36);
         }
         if(D7.isSelected()==true){
                 D7.setEnabled(false);
+                seatListDM.reserveSeats(37);
         }
         if(D8.isSelected()==true){
                 D8.setEnabled(false);
+                seatListDM.reserveSeats(38);
         }
         if(D9.isSelected()==true){
                 D9.setEnabled(false);
+                seatListDM.reserveSeats(39);
         }
         if(D10.isSelected()==true){
                 D10.setEnabled(false);
+                seatListDM.reserveSeats(40);
         }
         
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }//GEN-LAST:event_buttonContinueActionPerformed
 
     /**

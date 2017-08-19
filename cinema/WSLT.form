@@ -44,13 +44,13 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="WSLTAmity" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="WSLTBabyDriver" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="Amity" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="BabyDriver" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="WSLTJohnWick" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="WSLTBaywatch" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="JohnWick" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="Baywatch" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
@@ -60,22 +60,22 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="WSLTAmity" alignment="1" max="32767" attributes="0"/>
-                      <Component id="WSLTJohnWick" alignment="1" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="Amity" max="32767" attributes="0"/>
+                      <Component id="JohnWick" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="WSLTBabyDriver" alignment="0" max="32767" attributes="0"/>
-                      <Component id="WSLTBaywatch" alignment="0" max="32767" attributes="0"/>
+                  <EmptySpace pref="30" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="BabyDriver" max="32767" attributes="0"/>
+                      <Component id="Baywatch" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                  <EmptySpace pref="30" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="WSLTAmity">
+        <Container class="javax.swing.JPanel" name="Amity">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -87,10 +87,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="WSLTbuttonAmity" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
-                          <Component id="WSLTdetailAmity" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="WSLTbuttonAmity" min="-2" pref="180" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="WSLTpanelschedAmity" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -105,8 +102,6 @@
                           <Component id="WSLTpanelschedAmity" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="WSLTbuttonAmity" min="-2" pref="246" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="WSLTdetailAmity" min="-2" pref="30" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -116,17 +111,6 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="WSLTdetailAmity">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/buttonRating/buttonR13.png"/>
-                </Property>
-                <Property name="borderPainted" type="boolean" value="false"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="WSLTdetailAmityActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JButton" name="WSLTbuttonAmity">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -261,6 +245,9 @@
                       <Image iconType="3" name="/imagesHome/buttonReserveLight.png"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="WSLTbuttonReserveAmityActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="WSLTlabelShowAmity">
                   <Properties>
@@ -280,7 +267,7 @@
             </Container>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="WSLTJohnWick">
+        <Container class="javax.swing.JPanel" name="JohnWick">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -292,10 +279,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="WSLTbuttonJohnWick" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
-                          <Component id="WSLTdetailJohnWick" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="WSLTbuttonJohnWick" min="-2" pref="180" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="WSLTpanelschedJohnWick" max="32767" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -307,26 +291,13 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="WSLTbuttonJohnWick" min="-2" pref="246" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="WSLTdetailJohnWick" min="-2" pref="30" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Component id="WSLTpanelschedJohnWick" alignment="1" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="WSLTdetailJohnWick">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/buttonRating/buttonR16.png"/>
-                </Property>
-                <Property name="borderPainted" type="boolean" value="false"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="WSLTdetailJohnWickActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JButton" name="WSLTbuttonJohnWick">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -463,6 +434,9 @@
                       <Image iconType="3" name="/imagesHome/buttonReserveLight.png"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="WSLTbuttonReserveJohnWickActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="WSLTlabelShowJohnWick">
                   <Properties>
@@ -482,7 +456,7 @@
             </Container>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="WSLTBabyDriver">
+        <Container class="javax.swing.JPanel" name="BabyDriver">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -494,10 +468,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="WSLTbuttonBabyDriver" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
-                          <Component id="WSLTdetailBabyDriver" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="WSLTbuttonBabyDriver" min="-2" pref="180" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="WSLTpanelschedBabyDriver" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -512,8 +483,6 @@
                           <Component id="WSLTpanelschedBabyDriver" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="WSLTbuttonBabyDriver" min="-2" pref="246" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="WSLTdetailBabyDriver" min="-2" pref="30" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -523,17 +492,6 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="WSLTdetailBabyDriver">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/buttonRating/buttonR13.png"/>
-                </Property>
-                <Property name="borderPainted" type="boolean" value="false"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="WSLTdetailBabyDriverActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JButton" name="WSLTbuttonBabyDriver">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -668,6 +626,9 @@
                       <Image iconType="3" name="/imagesHome/buttonReserveLight.png"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="WSLTbuttonReserveBabyDriverActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="WSLTlabelShowBabyDriver">
                   <Properties>
@@ -687,7 +648,7 @@
             </Container>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="WSLTBaywatch">
+        <Container class="javax.swing.JPanel" name="Baywatch">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -699,10 +660,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="WSLTbuttonBaywatch" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
-                          <Component id="WSLTdetailBaywatch" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="WSLTbuttonBaywatch" min="-2" pref="180" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="WSLTpanelschedBaywatch" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -717,8 +675,6 @@
                           <Component id="WSLTpanelschedBaywatch" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="WSLTbuttonBaywatch" min="-2" pref="246" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="WSLTdetailBaywatch" min="-2" pref="30" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -728,17 +684,6 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="WSLTdetailBaywatch">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/buttonRating/buttonR13.png"/>
-                </Property>
-                <Property name="borderPainted" type="boolean" value="false"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="WSLTdetailBaywatchActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JButton" name="WSLTbuttonBaywatch">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -873,6 +818,9 @@
                       <Image iconType="3" name="/imagesHome/buttonReserveLight.png"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="WSLTbuttonReserveBaywatchActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="WSLTlabelShowBaywatch">
                   <Properties>

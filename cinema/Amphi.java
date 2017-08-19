@@ -5,8 +5,6 @@
  */
 package cinema;
 
-import registerlogin.AmphiDMreserveLogin;
-import project.Register;
 
 /**
  *
@@ -21,7 +19,6 @@ public class Amphi extends javax.swing.JFrame {
      */
     public Amphi() {
         initComponents();
-        logintoyouraccount.setSize(300, 256);
         
     }
 
@@ -34,15 +31,8 @@ public class Amphi extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        logintoyouraccount = new javax.swing.JFrame();
-        jPanel2 = new javax.swing.JPanel();
-        label = new javax.swing.JLabel();
-        login = new javax.swing.JButton();
-        register = new javax.swing.JButton();
-        guest = new javax.swing.JLabel();
         panelAmphi = new javax.swing.JPanel();
-        AmphipanelBeforeIFall = new javax.swing.JPanel();
-        AmphidetailBeforeIFall = new javax.swing.JButton();
+        BeforeIFall = new javax.swing.JPanel();
         AmphibuttonBeforeIFall = new javax.swing.JButton();
         AmphipanelschedBeforeIFall = new javax.swing.JPanel();
         AmphilabelBeforeIFall = new javax.swing.JLabel();
@@ -51,8 +41,7 @@ public class Amphi extends javax.swing.JFrame {
         AmphilabelSchedBeforeIFall = new javax.swing.JLabel();
         AmphibuttonReserveBeforeIFall = new javax.swing.JButton();
         AmphilabelShowBeforeIFall = new javax.swing.JLabel();
-        AmphipanelDespicableMe = new javax.swing.JPanel();
-        AmphidetailDespicableMe = new javax.swing.JButton();
+        DespicableMe = new javax.swing.JPanel();
         AmphibuttonDespicableMe = new javax.swing.JButton();
         AmphipanelschedDespicableMe = new javax.swing.JPanel();
         AmphilabelDespicableMe = new javax.swing.JLabel();
@@ -62,84 +51,9 @@ public class Amphi extends javax.swing.JFrame {
         AmphibuttonReserveDespicableMe = new javax.swing.JButton();
         AmphilabelShowDespicableMe = new javax.swing.JLabel();
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-
-        label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/panelLogintoyourAccount.png"))); // NOI18N
-
-        login.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/buttonLITYALogin.png"))); // NOI18N
-        login.setBorder(null);
-        login.setBorderPainted(false);
-
-        register.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesHome/buttonLITYARegister.png"))); // NOI18N
-        register.setBorder(null);
-        register.setBorderPainted(false);
-        register.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registerActionPerformed(evt);
-            }
-        });
-
-        guest.setFont(new java.awt.Font("Novecento sans wide", 0, 11)); // NOI18N
-        guest.setForeground(new java.awt.Color(102, 102, 102));
-        guest.setText("Continue as Guest");
-        guest.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                guestMouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(login, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(register, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(34, 34, 34))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(guest)
-                        .addGap(97, 97, 97))))
-            .addComponent(label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(label)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(login)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(register, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(guest)
-                .addGap(25, 25, 25))
-        );
-
-        javax.swing.GroupLayout logintoyouraccountLayout = new javax.swing.GroupLayout(logintoyouraccount.getContentPane());
-        logintoyouraccount.getContentPane().setLayout(logintoyouraccountLayout);
-        logintoyouraccountLayout.setHorizontalGroup(
-            logintoyouraccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        logintoyouraccountLayout.setVerticalGroup(
-            logintoyouraccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        AmphipanelBeforeIFall.setBackground(new java.awt.Color(255, 255, 255));
-
-        AmphidetailBeforeIFall.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonRating/buttonR13.png"))); // NOI18N
-        AmphidetailBeforeIFall.setBorderPainted(false);
-        AmphidetailBeforeIFall.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AmphidetailBeforeIFallActionPerformed(evt);
-            }
-        });
+        BeforeIFall.setBackground(new java.awt.Color(255, 255, 255));
 
         AmphibuttonBeforeIFall.setIcon(new javax.swing.ImageIcon(getClass().getResource("/posters/posterBeforeIFall.png"))); // NOI18N
         AmphibuttonBeforeIFall.setBorderPainted(false);
@@ -211,49 +125,43 @@ public class Amphi extends javax.swing.JFrame {
                 .addComponent(AmphilabelSchedBeforeIFall)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(AmphilabelShowBeforeIFall)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(AmphibuttonReserveBeforeIFall)
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout AmphipanelBeforeIFallLayout = new javax.swing.GroupLayout(AmphipanelBeforeIFall);
-        AmphipanelBeforeIFall.setLayout(AmphipanelBeforeIFallLayout);
-        AmphipanelBeforeIFallLayout.setHorizontalGroup(
-            AmphipanelBeforeIFallLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AmphipanelBeforeIFallLayout.createSequentialGroup()
+        javax.swing.GroupLayout BeforeIFallLayout = new javax.swing.GroupLayout(BeforeIFall);
+        BeforeIFall.setLayout(BeforeIFallLayout);
+        BeforeIFallLayout.setHorizontalGroup(
+            BeforeIFallLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BeforeIFallLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(AmphipanelBeforeIFallLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(AmphibuttonBeforeIFall, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AmphidetailBeforeIFall, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(AmphibuttonBeforeIFall, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(AmphipanelschedBeforeIFall, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        AmphipanelBeforeIFallLayout.setVerticalGroup(
-            AmphipanelBeforeIFallLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AmphipanelBeforeIFallLayout.createSequentialGroup()
+        BeforeIFallLayout.setVerticalGroup(
+            BeforeIFallLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BeforeIFallLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(AmphipanelBeforeIFallLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(BeforeIFallLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(AmphipanelschedBeforeIFall, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(AmphipanelBeforeIFallLayout.createSequentialGroup()
+                    .addGroup(BeforeIFallLayout.createSequentialGroup()
                         .addComponent(AmphibuttonBeforeIFall, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(AmphidetailBeforeIFall, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
 
-        AmphipanelDespicableMe.setBackground(new java.awt.Color(255, 255, 255));
-
-        AmphidetailDespicableMe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonRating/buttonPG.png"))); // NOI18N
-        AmphidetailDespicableMe.setBorderPainted(false);
-        AmphidetailDespicableMe.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AmphidetailDespicableMeActionPerformed(evt);
-            }
-        });
+        DespicableMe.setBackground(new java.awt.Color(255, 255, 255));
 
         AmphibuttonDespicableMe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/posters/posterDespicableMe3.png"))); // NOI18N
         AmphibuttonDespicableMe.setBorderPainted(false);
         AmphibuttonDespicableMe.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonRolloverPressed/buttonDM3Pressed.png"))); // NOI18N
         AmphibuttonDespicableMe.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonRolloverPressed/buttonDM3Rollover.png"))); // NOI18N
+        AmphibuttonDespicableMe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AmphibuttonDespicableMeActionPerformed(evt);
+            }
+        });
 
         AmphipanelschedDespicableMe.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -330,27 +238,23 @@ public class Amphi extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout AmphipanelDespicableMeLayout = new javax.swing.GroupLayout(AmphipanelDespicableMe);
-        AmphipanelDespicableMe.setLayout(AmphipanelDespicableMeLayout);
-        AmphipanelDespicableMeLayout.setHorizontalGroup(
-            AmphipanelDespicableMeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AmphipanelDespicableMeLayout.createSequentialGroup()
+        javax.swing.GroupLayout DespicableMeLayout = new javax.swing.GroupLayout(DespicableMe);
+        DespicableMe.setLayout(DespicableMeLayout);
+        DespicableMeLayout.setHorizontalGroup(
+            DespicableMeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DespicableMeLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(AmphipanelDespicableMeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(AmphibuttonDespicableMe, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AmphidetailDespicableMe, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(AmphibuttonDespicableMe, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(AmphipanelschedDespicableMe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        AmphipanelDespicableMeLayout.setVerticalGroup(
-            AmphipanelDespicableMeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AmphipanelDespicableMeLayout.createSequentialGroup()
+        DespicableMeLayout.setVerticalGroup(
+            DespicableMeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DespicableMeLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(AmphibuttonDespicableMe, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(AmphidetailDespicableMe, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(AmphipanelschedDespicableMe, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -360,79 +264,48 @@ public class Amphi extends javax.swing.JFrame {
             panelAmphiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelAmphiLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(AmphipanelDespicableMe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(AmphipanelBeforeIFall, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(DespicableMe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(BeforeIFall, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
         );
         panelAmphiLayout.setVerticalGroup(
             panelAmphiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelAmphiLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(panelAmphiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(AmphipanelDespicableMe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AmphipanelBeforeIFall, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(283, Short.MAX_VALUE))
+                .addGroup(panelAmphiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(DespicableMe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BeforeIFall, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(319, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelAmphi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(panelAmphi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(panelAmphi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 336, Short.MAX_VALUE))
+            .addComponent(panelAmphi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void AmphidetailBeforeIFallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AmphidetailBeforeIFallActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AmphidetailBeforeIFallActionPerformed
-
-    private void AmphidetailDespicableMeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AmphidetailDespicableMeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AmphidetailDespicableMeActionPerformed
-
     private void AmphibuttonReserveDespicableMeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AmphibuttonReserveDespicableMeActionPerformed
-        logintoyouraccount.setVisible(true);
+        AmphiDespicableMe3 AmphiDespicableMe3 = new AmphiDespicableMe3();
+        AmphiDespicableMe3.setVisible(true);
     }//GEN-LAST:event_AmphibuttonReserveDespicableMeActionPerformed
 
     private void AmphibuttonReserveBeforeIFallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AmphibuttonReserveBeforeIFallActionPerformed
-        logintoyouraccount.setVisible(true);
+        AmphiBeforeIFall AmphiBeforeIFall = new AmphiBeforeIFall();
+        AmphiBeforeIFall.setVisible(true);
     }//GEN-LAST:event_AmphibuttonReserveBeforeIFallActionPerformed
 
-    private void registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerActionPerformed
+    private void AmphibuttonDespicableMeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AmphibuttonDespicableMeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_registerActionPerformed
-
-    
-    AmphiDespicableMe3 ADM = new AmphiDespicableMe3();
-    AmphiBeforeIFall ABIF = new AmphiBeforeIFall();
-    private void guestMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_guestMouseClicked
-        if (AmphibuttonReserveDespicableMe.isRolloverEnabled()){
-            this.setVisible(false);
-            
-            AmphiDespicableMe3.
-            
-            ADM.setVisible(true);
-        }
-        
-        else if (AmphibuttonReserveBeforeIFall.isRolloverEnabled()){
-            this.setVisible(false);
-            
-            ABIF.setVisible(true);
-        }
-        
-    }//GEN-LAST:event_guestMouseClicked
+    }//GEN-LAST:event_AmphibuttonDespicableMeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -474,8 +347,6 @@ public class Amphi extends javax.swing.JFrame {
     private javax.swing.JButton AmphibuttonDespicableMe;
     private javax.swing.JButton AmphibuttonReserveBeforeIFall;
     private javax.swing.JButton AmphibuttonReserveDespicableMe;
-    private javax.swing.JButton AmphidetailBeforeIFall;
-    private javax.swing.JButton AmphidetailDespicableMe;
     private javax.swing.JLabel AmphilabelBeforeIFall;
     private javax.swing.JLabel AmphilabelDespicableMe;
     private javax.swing.JLabel AmphilabelGenreBeforeIFall;
@@ -486,16 +357,10 @@ public class Amphi extends javax.swing.JFrame {
     private javax.swing.JLabel AmphilabelSchedDespicableMe;
     private javax.swing.JLabel AmphilabelShowBeforeIFall;
     private javax.swing.JLabel AmphilabelShowDespicableMe;
-    private javax.swing.JPanel AmphipanelBeforeIFall;
-    private javax.swing.JPanel AmphipanelDespicableMe;
     private javax.swing.JPanel AmphipanelschedBeforeIFall;
     private javax.swing.JPanel AmphipanelschedDespicableMe;
-    private javax.swing.JLabel guest;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel label;
-    private javax.swing.JButton login;
-    private javax.swing.JFrame logintoyouraccount;
+    private javax.swing.JPanel BeforeIFall;
+    private javax.swing.JPanel DespicableMe;
     private javax.swing.JPanel panelAmphi;
-    private javax.swing.JButton register;
     // End of variables declaration//GEN-END:variables
 }
