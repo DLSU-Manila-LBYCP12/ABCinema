@@ -3,6 +3,7 @@ Members: Alano, Betito, Chen
 
 Imagine going to the movie theater to watch a new movie and you find that the line is so long and the movie will start in five minutes, don’t you wish there was an application that will help you get out of that predicament? Most of the time, people experience inconvenience when buying tickets due to the long lines and they waste a lot of time waiting for their turn. Many of them wishing that there was some easier way to be able to buy tickets. This is the purpose of our project, the ABCinema.
 
+![home](https://user-images.githubusercontent.com/16649576/29487829-3c14a6cc-8532-11e7-8869-cef92619b3c8.png)
 
 
 ## Features
@@ -43,3 +44,13 @@ Imagine going to the movie theater to watch a new movie and you find that the li
 ![tetrisingame](https://user-images.githubusercontent.com/16649576/29487732-bd650b60-8530-11e7-8c23-d32a694e3bc3.png)
 ![tetrisgameover](https://user-images.githubusercontent.com/16649576/29487731-bd474314-8530-11e7-9bdd-1ba291056ea5.png)
 
+### Codes
+#### List
+![seatList](https://user-images.githubusercontent.com/16649576/29488079-508e5bf8-8536-11e7-84c3-70ffe45b5b9f.png)
+![list](https://user-images.githubusercontent.com/16649576/29487722-bcfe8390-8530-11e7-9717-529b946eed80.png)
+
+#### LinkedList
+![linkedlist](https://user-images.githubusercontent.com/16649576/29487721-bcfade5c-8530-11e7-9070-fa36f4fee3b2.png)
+
+#### Queue
+![queue](https://user-images.githubusercontent.com/16649576/29487724-bd06da40-8530-11e7-8e59-f02d04a2603d.png)
